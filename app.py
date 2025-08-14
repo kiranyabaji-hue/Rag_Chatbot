@@ -127,7 +127,7 @@ st.header("Ask a question")
 question = st.text_input("Your question", value="")
 if st.button("Search & Generate") and question.strip():
     with st.spinner("Embedding query and searching Chroma..."):
-        q_emb = embed_model.encode([questiorn], convert_to_numpy=True)[0]
+        q_emb = embed_model.encode([question], convert_to_numpy=True)[0]
         hits = query_chroma(collection, q_emb, top_k=top_k)
 
     context_parts = [
